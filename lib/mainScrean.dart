@@ -229,20 +229,20 @@ class HomePage extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Padding(padding: 
-                    EdgeInsets.all(20),
-                    child: Column(
-                      children: [
-                        Icon(Icons.timelapse,
-                        size: 40,
-                        color: Colors.blueAccent,),
-                        SizedBox(height: 15,),
-                        Text("Courses Time",
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),)
-                      ],
-                    ),),
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.timelapse,
+                            size: 40,
+                            color: Colors.blueAccent,
+                          ),
+                          SizedBox(height: 15),
+                          Text("Courses Time", style: TextStyle(fontSize: 18)),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -259,8 +259,145 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("This is profile page", style: TextStyle(fontSize: 25)),
+    return SingleChildScrollView(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        children: [
+          SizedBox(height: 20),
+          CircleAvatar(
+            radius: 55,
+            backgroundColor: Colors.blueAccent,
+            child: Icon(Icons.person, size: 65, color: Colors.deepPurple),
+          ),
+          SizedBox(height: 15),
+          //name
+          Text(
+            "MOHIB ULLAH",
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 5),
+          //edite profile button
+          ElevatedButton.icon(
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text("edit Profile Clickd"),
+                  duration: Duration(seconds: 1),
+                ),
+              );
+            },
+            icon: Icon(Icons.edit),
+            label: Text("Edite Profile"),
+          ),
+          SizedBox(height: 25),
+          //account section
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "Account",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+          SizedBox(height: 10),
+          Card(
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text("Personal Information"),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 18),
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Personal Information"),
+                        duration: Duration(seconds: 1),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 10),
+
+          //setting section
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "settings",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+          SizedBox(height: 10),
+          Card(
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Icon(Icons.notifications),
+                  title: Text("Notifications"),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 18),
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Notification Clicked"),
+                        duration: Duration(seconds: 1),
+                      ),
+                    );
+                  },
+                ),
+                Divider(),
+
+                ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text("Settings"),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 18),
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Settings Clicked"),
+                        duration: Duration(seconds: 1),
+                      ),
+                    );
+                  },
+                ),
+                Divider(),
+
+                ListTile(
+                  leading: Icon(Icons.help),
+                  title: Text("Help & Support"),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 18),
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Help & Support Clicked"),
+                        duration: Duration(seconds: 1),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 20),
+
+          //log out
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text("Logout Clicked"),
+                    duration: Duration(seconds: 1),
+                  ),
+                );
+              },
+              icon: Icon(Icons.logout),
+              label: Text("Log out"),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
