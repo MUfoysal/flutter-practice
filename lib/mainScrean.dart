@@ -37,39 +37,54 @@ class _MainscreanState extends State<Mainscrean> {
         ),
         title: Text("Welcome", style: TextStyle(color: Colors.white)),
       ),
-      drawer:Drawer(
+      drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-              color: Colors.blueAccent,
-            ),child:Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  radius: 35,
-                  child: Icon(Icons.person),
-                ),
-                SizedBox(height: 10,),
-                Text("Mohib Ullah",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
-                ),
-                Text("mohib@gmail.com",
-                style: TextStyle(
-                  color: Colors.white70,
-                ),)
-              ],
+            Container(
+              height: 220,
+              padding: EdgeInsets.all(16),
+              decoration: BoxDecoration(color: Colors.blueAccent),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 35,
+                    child: Icon(
+                      Icons.person,
+                      size: 40,
+                      color: Colors.deepPurple,
+                    ),
+                  ),
+
+                  SizedBox(height: 8),
+
+                  Text(
+                    "Mohib Ullah",
+                    style: TextStyle(color: Colors.white, fontSize: 22),
+                  ),
+
+                  Text(
+                    "mohib@gmail.com",
+                    style: TextStyle(color: Colors.white70, fontSize: 15),
+                  ),
+                ],
+              ),
             ),
-            // child: Text("My App",
-            // style: TextStyle(
-            //   color: Colors.white,
-            //   fontSize: 25,
-            // ),),
-            )
+
+            ListTile(leading: Icon(Icons.home), title: Text("Home")),
+
+            ListTile(leading: Icon(Icons.person), title: Text("Profile")),
+
+            ListTile(leading: Icon(Icons.settings), title: Text("Settings")),
+
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("Log out"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
           ],
         ),
       ),
@@ -114,9 +129,83 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("This is home page", style: TextStyle(fontSize: 25)),
-    );
+    return SingleChildScrollView(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Good Afternoon",
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+          ),),
+          SizedBox(height: 5,),
+          Text("Welcome Back, mohib ullah",
+          style: TextStyle(
+            fontSize: 16,
+          color: Colors.grey,
+          ),),
+          SizedBox(height: 5,),
+          TextField(
+            decoration: InputDecoration(
+              hintText: "Search....",
+              prefixIcon: Icon(Icons.search),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+              )
+            ),
+          ),
+          SizedBox(height: 24,),
+          Text("Quick Action",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+          ),
+
+          SizedBox(height: 12,),
+
+          Row(
+            children: [
+              Expanded(
+                child:Card(
+                  child: Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        Icon(Icons.book,
+                        size: 35,
+                        color: Colors.blueAccent,
+                        ),
+                        SizedBox(height: 10,),
+
+                        Text("Courses"),
+                      ],
+                    ),
+                    ),
+                ),
+                ),
+                SizedBox(height: 10,),
+                Expanded(
+                  child:Padding(padding: 
+                  EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      Icon(Icons.note,
+                      size: 35,
+                      color: Colors.blueAccent,
+                      ),
+                      SizedBox(height: 10,),
+                      Text("Notes"),
+                    ],
+                  ),
+                  ),
+                  )
+            ],
+          ),
+          ],
+          )
+      );
   }
 }
 
