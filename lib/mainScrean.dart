@@ -134,78 +134,123 @@ class HomePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Good Afternoon",
-          style: TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-          ),),
-          SizedBox(height: 5,),
-          Text("Welcome Back, mohib ullah",
-          style: TextStyle(
-            fontSize: 16,
-          color: Colors.grey,
-          ),),
-          SizedBox(height: 5,),
+          Text(
+            "Good Afternoon",
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 5),
+          Text(
+            "Welcome Back, mohib ullah",
+            style: TextStyle(fontSize: 16, color: Colors.grey),
+          ),
+          SizedBox(height: 5),
           TextField(
             decoration: InputDecoration(
               hintText: "Search....",
               prefixIcon: Icon(Icons.search),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
-              )
+              ),
             ),
           ),
-          SizedBox(height: 24,),
-          Text("Quick Action",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          SizedBox(height: 24),
+          Text(
+            "Quick Action",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
 
-          SizedBox(height: 12,),
+          SizedBox(height: 12),
 
           Row(
             children: [
               Expanded(
-                child:Card(
-                  child: Padding(
-                    padding: EdgeInsets.all(20),
+                child: Card(
+                  child: InkWell(
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Courses Clicked"),
+                          duration: Duration(seconds: 1),
+                        ),
+                      );
+                    },
+
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Icon(Icons.book, size: 40, color: Colors.blueAccent),
+                          SizedBox(height: 15),
+
+                          Text("Courses", style: TextStyle(fontSize: 18)),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(width: 15),
+
+              Expanded(
+                child: Card(
+                  child: InkWell(
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Nots Clickd"),
+                          duration: Duration(seconds: 1),
+                        ),
+                      );
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Icon(Icons.note, size: 40, color: Colors.blueAccent),
+
+                          SizedBox(height: 15),
+
+                          Text("Notes", style: TextStyle(fontSize: 18)),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              Expanded(
+                child: Card(
+                  child: InkWell(
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Courses time clicked"),
+                          duration: Duration(seconds: 1),
+                        ),
+                      );
+                    },
+                    child: Padding(padding: 
+                    EdgeInsets.all(20),
                     child: Column(
                       children: [
-                        Icon(Icons.book,
-                        size: 35,
-                        color: Colors.blueAccent,
-                        ),
-                        SizedBox(height: 10,),
-
-                        Text("Courses"),
+                        Icon(Icons.timelapse,
+                        size: 40,
+                        color: Colors.blueAccent,),
+                        SizedBox(height: 15,),
+                        Text("Courses Time",
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),)
                       ],
-                    ),
-                    ),
-                ),
-                ),
-                SizedBox(height: 10,),
-                Expanded(
-                  child:Padding(padding: 
-                  EdgeInsets.all(20),
-                  child: Column(
-                    children: [
-                      Icon(Icons.note,
-                      size: 35,
-                      color: Colors.blueAccent,
-                      ),
-                      SizedBox(height: 10,),
-                      Text("Notes"),
-                    ],
+                    ),),
                   ),
-                  ),
-                  )
+                ),
+              ),
             ],
           ),
-          ],
-          )
-      );
+        ],
+      ),
+    );
   }
 }
 
