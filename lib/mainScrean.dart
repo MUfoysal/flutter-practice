@@ -37,6 +37,42 @@ class _MainscreanState extends State<Mainscrean> {
         ),
         title: Text("Welcome", style: TextStyle(color: Colors.white)),
       ),
+      drawer:Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+              color: Colors.blueAccent,
+            ),child:Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CircleAvatar(
+                  radius: 35,
+                  child: Icon(Icons.person),
+                ),
+                SizedBox(height: 10,),
+                Text("Mohib Ullah",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+                ),
+                Text("mohib@gmail.com",
+                style: TextStyle(
+                  color: Colors.white70,
+                ),)
+              ],
+            ),
+            // child: Text("My App",
+            // style: TextStyle(
+            //   color: Colors.white,
+            //   fontSize: 25,
+            // ),),
+            )
+          ],
+        ),
+      ),
       body: pages[currentIndex],
 
       bottomNavigationBar: BottomNavigationBar(
